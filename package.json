@@ -1,0 +1,17 @@
+{
+  "name": "san-julian-hace-ciencia",
+  "private": true,
+  "description": "Portal de divulgacion cientifica de la UNPA-UASJ. Monorepo: panel admin (CMS) + portal publico, desacoplados y consumiendo un paquete de contenidos compartido.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:portal": "npm run dev -w apps/portal",
+    "dev:admin": "npm run dev -w apps/admin",
+    "build:portal": "npm run build -w apps/portal",
+    "build:admin": "npm run build -w apps/admin",
+    "lint:portal": "npm run lint -w apps/portal",
+    "lint:admin": "npm run lint -w apps/admin"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@san-julian/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tipos y datos mock compartidos entre el portal publico y el panel admin de San Julian Hace Ciencia. Simula el contrato de la futura API de contenidos.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}

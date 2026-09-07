@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Paleta inspirada en el territorio: azul mar patagónico como primario,
+  terracota de la estepa como acento. Tres modos conviven porque la
+  accesibilidad (Modulo 04 del presupuesto) es parte del diseño, no un
+  agregado: claro, oscuro y alto contraste.
+*/
+:root {
+  --background: 40 30% 97%;
+  --foreground: 210 25% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 25% 14%;
+  --border: 210 15% 85%;
+  --muted: 210 20% 94%;
+  --muted-foreground: 210 10% 40%;
+  --primary: 205 55% 30%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 12 65% 48%;
+  --accent-foreground: 0 0% 100%;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+}
+
+[data-theme="dark"] {
+  --background: 210 30% 9%;
+  --foreground: 40 20% 92%;
+  --card: 210 25% 13%;
+  --card-foreground: 40 20% 92%;
+  --border: 210 20% 24%;
+  --muted: 210 20% 16%;
+  --muted-foreground: 210 10% 68%;
+  --primary: 205 60% 58%;
+  --primary-foreground: 210 30% 9%;
+  --accent: 16 75% 60%;
+  --accent-foreground: 210 30% 9%;
+}
+
+[data-theme="contrast"] {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --border: 0 0% 0%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 48 100% 38%;
+  --accent-foreground: 0 0% 0%;
+}
+
+html[data-fontsize="lg"] {
+  font-size: 112.5%;
+}
+html[data-fontsize="xl"] {
+  font-size: 125%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="contrast"] a,
+[data-theme="contrast"] button {
+  text-decoration: underline;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 3px solid hsl(var(--accent));
+  outline-offset: 2px;
+}
