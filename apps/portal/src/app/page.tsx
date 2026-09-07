@@ -17,7 +17,7 @@ export default function HomePage() {
             UNPA · Unidad Académica San Julián
           </p>
           <h1 className="mt-3 max-w-2xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
-            La ciencia que se hace en San Julián, contada para todos.
+            Portal de divulgación científica de la UASJ, accesible para toda la comunidad.
           </h1>
           <p className="mt-4 max-w-xl text-lg text-muted-foreground">
             Artículos, infografías, podcasts y materiales didácticos que traducen la
