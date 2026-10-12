@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import {
   AREAS,
-  AUTORES,
   CONTENT_TYPE_LABEL,
   SIGUIENTE_ESTADO,
   type ContentItem,
@@ -243,17 +242,12 @@ export function ContentForm({ initial }: { initial?: ContentItem }) {
           <label htmlFor="autor" className="mt-3 block text-xs font-medium text-muted-foreground">
             Autor / responsable
           </label>
-          <select
+          <input
             id="autor"
-            defaultValue={initial?.autorId ?? AUTORES[0].id}
-            className="mt-1 w-full rounded-md border border-border bg-background px-3 py-1.5 text-sm"
-          >
-            {AUTORES.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.nombre}
-              </option>
-            ))}
-          </select>
+            defaultValue={initial?.autor}
+            placeholder="Ej: Dra. Marina Coronel"
+            className="mt-1 w-full rounded-md border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-primary"
+          />
 
           <span className="mt-3 block text-xs font-medium text-muted-foreground">
             Estado editorial

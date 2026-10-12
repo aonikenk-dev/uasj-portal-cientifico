@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Newspaper,
+  GalleryHorizontal,
   FolderKanban,
   Users,
   BarChart3,
@@ -16,6 +17,7 @@ import { USUARIOS } from "@san-julian/shared";
 const NAV = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/contenidos", label: "Contenidos", icon: Newspaper },
+  { href: "/portada", label: "Portada", icon: GalleryHorizontal },
   { href: "/categorias", label: "Categorías", icon: FolderKanban },
   { href: "/usuarios", label: "Usuarios", icon: Users },
   { href: "/metricas", label: "Métricas", icon: BarChart3 },

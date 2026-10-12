@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { AREAS } from "@san-julian/shared";
 
+// TODO: reemplazar cada href "#" por el link al contenido de ese ODS.
 const ODS = [
-  { n: 4, nombre: "Educación de calidad" },
-  { n: 11, nombre: "Ciudades y comunidades sostenibles" },
-  { n: 17, nombre: "Alianzas para lograr los objetivos" },
+  { n: 4, nombre: "Educación de calidad", href: "#" },
+  { n: 11, nombre: "Ciudades y comunidades sostenibles", href: "#" },
+  { n: 17, nombre: "Alianzas para lograr los objetivos", href: "#" },
 ];
 
 export function SiteFooter() {
@@ -35,7 +36,9 @@ export function SiteFooter() {
           <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
             {ODS.map((o) => (
               <li key={o.n}>
-                ODS {o.n} · {o.nombre}
+                <Link href={o.href} className="hover:text-foreground">
+                  ODS {o.n} · {o.nombre}
+                </Link>
               </li>
             ))}
           </ul>

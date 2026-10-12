@@ -6,7 +6,6 @@ import {
   CONTENT_TYPE_LABEL,
   getAreaBySlug,
   getAreaById,
-  getAutorById,
   getContenidoBySlug,
   getContenidosPorArea,
 } from "@san-julian/shared";
@@ -46,7 +45,6 @@ export default function ContentDetailPage({
 
   if (!area || !item || item.areaId !== area.id) notFound();
 
-  const autor = getAutorById(item.autorId);
   const relacionados = getContenidosPorArea(area.id)
     .filter((c) => c.id !== item.id)
     .slice(0, 3);
@@ -76,7 +74,7 @@ export default function ContentDetailPage({
       <p className="mt-3 text-lg text-muted-foreground">{item.resumen}</p>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-        {autor && <span>Por {autor.nombre}</span>}
+        {item.autor && <span>Por {item.autor}</span>}
         <span>·</span>
         <span>{formatDate(item.fechaPublicacion)}</span>
         <span>·</span>

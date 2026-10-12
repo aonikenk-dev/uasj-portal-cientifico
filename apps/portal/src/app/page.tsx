@@ -1,48 +1,38 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { AREAS, getDestacados, getContenidosPublicados } from "@san-julian/shared";
+import {
+  AREAS,
+  getDestacados,
+  getContenidosPublicados,
+  getSlidesPortada,
+} from "@san-julian/shared";
+import { AreaLogo } from "@/components/AreaLogo";
 import { ContentCard } from "@/components/ContentCard";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SearchBar } from "@/components/SearchBar";
 
 export default function HomePage() {
+  const slides = getSlidesPortada();
   const destacados = getDestacados().slice(0, 3);
   const ultimas = getContenidosPublicados().slice(0, 6);
 
   return (
     <div>
-      <section className="border-b border-border bg-gradient-to-b from-muted/60 to-background">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-            UNPA · Unidad Académica San Julián
+      <h1 className="sr-only">
+        San Julián hace ciencia: portal de divulgación científica de la UASJ
+      </h1>
+      <HeroCarousel slides={slides} />
+
+      <div className="border-b border-border bg-muted/40">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-medium text-muted-foreground">
+            ¿Buscás algo en particular?
           </p>
-          <h1 className="mt-3 max-w-2xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
-            Portal de divulgación científica de la UASJ, accesible para toda la comunidad.
-          </h1>
-          <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-            Artículos, infografías, podcasts y materiales didácticos que traducen la
-            producción científica de la UASJ a un lenguaje claro y accesible.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="#areas"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline hover:opacity-90"
-            >
-              Explorar áreas
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-            <Link
-              href="/novedades"
-              className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-semibold no-underline hover:bg-muted"
-            >
-              Ver novedades
-            </Link>
-          </div>
-          <div className="mt-6 max-w-md">
+          <div className="w-full max-w-md">
             <SearchBar />
           </div>
         </div>
-      </section>
+      </div>
 
       <section id="areas" className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-serif text-2xl font-semibold">Áreas temáticas</h2>
@@ -54,13 +44,9 @@ export default function HomePage() {
             <Link
               key={area.id}
               href={`/${area.slug}`}
-              className="flex flex-col gap-2 rounded-lg border border-border bg-card p-5 no-underline transition-shadow hover:shadow-md"
+              className="flex flex-col gap-3 rounded-lg border border-border bg-card p-5 no-underline transition-shadow hover:shadow-md"
             >
-              <span
-                className="h-1.5 w-10 rounded-full"
-                style={{ backgroundColor: `hsl(${area.color})` }}
-                aria-hidden
-              />
+              <AreaLogo area={area} />
               <span className="font-serif text-lg font-semibold text-foreground">
                 {area.nombre}
               </span>

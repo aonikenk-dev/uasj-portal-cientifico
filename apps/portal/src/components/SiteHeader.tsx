@@ -31,18 +31,24 @@ export function SiteHeader() {
               <li key={area.id}>
                 <Link
                   href={`/${area.slug}`}
-                  className="text-foreground/80 no-underline hover:text-foreground"
+                  className="group flex flex-col items-stretch gap-1 pt-1 text-foreground/80 no-underline hover:text-foreground"
                 >
                   {area.nombre}
+                  <span
+                    className="h-[3px] rounded-full opacity-80 transition-opacity group-hover:opacity-100"
+                    style={{ backgroundColor: `hsl(${area.color})` }}
+                    aria-hidden
+                  />
                 </Link>
               </li>
             ))}
             <li>
               <Link
                 href="/novedades"
-                className="text-foreground/80 no-underline hover:text-foreground"
+                className="flex flex-col gap-1 pt-1 text-foreground/80 no-underline hover:text-foreground"
               >
                 Novedades
+                <span className="h-[3px]" aria-hidden />
               </Link>
             </li>
           </ul>

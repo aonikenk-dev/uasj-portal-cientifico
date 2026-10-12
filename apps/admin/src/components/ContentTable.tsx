@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ContentItem } from "@san-julian/shared";
-import { CONTENT_TYPE_LABEL, getAreaById, getAutorById } from "@san-julian/shared";
+import { CONTENT_TYPE_LABEL, getAreaById } from "@san-julian/shared";
 import { StatusBadge } from "./StatusBadge";
 import { formatShortDate } from "@/lib/format";
 
@@ -30,7 +30,6 @@ export function ContentTable({ items }: { items: ContentItem[] }) {
         <tbody>
           {items.map((item) => {
             const area = getAreaById(item.areaId);
-            const autor = getAutorById(item.autorId);
             return (
               <tr key={item.id} className="border-b border-border last:border-0 hover:bg-muted/40">
                 <td className="max-w-xs px-6 py-3">
@@ -43,7 +42,7 @@ export function ContentTable({ items }: { items: ContentItem[] }) {
                 </td>
                 <td className="px-4 py-3 text-muted-foreground">{area?.nombre ?? "—"}</td>
                 <td className="px-4 py-3 text-muted-foreground">{CONTENT_TYPE_LABEL[item.tipo]}</td>
-                <td className="px-4 py-3 text-muted-foreground">{autor?.nombre ?? "—"}</td>
+                <td className="px-4 py-3 text-muted-foreground">{item.autor || "—"}</td>
                 <td className="px-4 py-3">
                   <StatusBadge estado={item.estado} />
                 </td>
